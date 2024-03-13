@@ -13,8 +13,8 @@ pipeline {
         stage('Set up Python') {
             steps {
                 script {
-                    // Install Python
-                    sh 'apt-get update && apt-get install -y python3 python3-pip'
+                    // Assuming Python and pip are already installed on Windows
+                    // You can add additional checks or installation steps here if needed
                 }
             }
         }
@@ -22,7 +22,8 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'pip3 install -r requirements.txt'
+                    // Install Python dependencies using pip
+                    bat 'pip install -r requirements.txt'
                 }
             }
         }
@@ -30,7 +31,10 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
-                    sh 'make test'
+                    // Run tests using the appropriate Windows command
+                    // This example assumes you have a script named 'test_script.py'
+                    // Modify this according to your actual testing setup
+                    bat 'python test_script.py'
                 }
             }
         }
